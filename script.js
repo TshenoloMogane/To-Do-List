@@ -1,6 +1,7 @@
 // Get references to DOM elements
 const addButton = document.getElementById("addTask");
 const searchButton = document.getElementById("searchTask");
+const clearButton = document.getElementById("clearSearch");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
@@ -51,6 +52,7 @@ function createTaskElement(task, completed = false) {
 
   const div = document.createElement("div")
   checkbox.type = "checkbox";
+  checkbox.classList = "checkbox"
   checkbox.addEventListener("change", function () {
     const taskText = listItem.querySelector("span");
     if (checkbox.checked) {
@@ -76,6 +78,7 @@ function createTaskElement(task, completed = false) {
     taskText.classList.add("completed");
   }
   taskText.textContent = task;
+  taskText.style.fontWeight = "700"
   listItem.appendChild(taskText);
 
   // Create edit button
@@ -86,13 +89,15 @@ function createTaskElement(task, completed = false) {
     currentTaskIndex = Array.from(taskList.children).indexOf(listItem);
   });
   editButton.textContent = "Edit";
-  editButton.className = "editTask";
+  editButton.className = "button";
+  editButton.style.backgroundColor = "#37A2E6"
   div.appendChild(editButton);
 
   // Create delete button
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-  deleteButton.className = "deleteTask";
+  deleteButton.className = "button";
+  deleteButton.style.backgroundColor = "#664747"
   deleteButton.addEventListener("click", function () {
     taskList.removeChild(listItem);
     saveTasks();
@@ -128,6 +133,7 @@ function searchTask() {
   const searchTerm = taskInput.value.trim().toLowerCase();
   const tasks = taskList.querySelectorAll("li");
   let count = 0;
+  clearButton.style.display = "inline"
   tasks.forEach(function (task) {
     const taskText = task.querySelector("span").textContent.toLowerCase();
     if (taskText.includes(searchTerm)) {
@@ -144,5 +150,14 @@ function searchTask() {
     searchTask();
   }
 }
+
+//Funtion to clear tasks
+function clearSearch() {
+  taskInput.value ='';
+    searchTask();
+    clearButton.style.display = "none"
+}
 // Add event listener for the "Search" button
 searchButton.addEventListener("click", searchTask);
+clearButton.addEventListener("click", clearSearch);
+

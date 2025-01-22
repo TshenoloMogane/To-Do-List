@@ -73,10 +73,27 @@ li {
 
 /* Styles for the edit and delete buttons */
 .editTask, .deleteTask {
+}
+
+/* .editTask {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .deleteTask {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        } */
+.button{
     margin-left: 5px; 
-}
-
-.editTask {
     background-color: #ff6b6b;
     color: white;
     border: none;
@@ -85,17 +102,37 @@ li {
     cursor: pointer;
 }
 
-.deleteTask {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 
 /* Styles for completed tasks */
 .completed {
     text-decoration: line-through;
     color: gray;
+}
+
+.checkbox {
+    /* position: absolute; */
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+.inputbox{
+    margin-left: 5px; 
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search{
+    font-size: .1em;
+}
+
+.fa{
+    font-size: 1em;
 }
